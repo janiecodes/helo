@@ -1,4 +1,4 @@
-import axios from 'axios'
+// import axios from 'axios'
 const initialState = {
     username: '',
     profilePic: '',
@@ -34,10 +34,11 @@ export function logoutUser() {
 //     }
 // }
 
-export default function (state = initialState, action) {
-    switch(action.type){
+export default function reducer(state = initialState, action) {
+    let {type, payload} = action;
+    switch(type){
         case LOGIN_USER:
-            return {...state, user: action.payload, isLoggedIn: true}
+            return {...state, username: payload, profilePic: payload, userId: payload}
         case LOGOUT_USER:
             return {...state, ...action.payload}; 
         // case GET_USER + '_PENDING':

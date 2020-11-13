@@ -14,5 +14,62 @@
 }
 
 .app-component{
-  background-color: pink
+  background-image: -webkit-linear-gradient(351deg,#ff70a6,#ff9770 40%,#ffd670 73%,#e9ff70);
+  background-image: -o-linear-gradient(351deg,#ff70a6,#ff9770 40%,#ffd670 73%,#e9ff70);
+  background-image: linear-gradient(99deg,#ff70a6,#ff9770 40%,#ffd670 73%,#e9ff70);
+  position: absolute;  height: 100vh;
+  width: 100vw;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-component {
+  flex-direction: column;
+  border-radius: 8px;
+  justify-content: space-around;
+  box-shadow: 0 14px 28px 0 rgba(0,0,0,.25), 0 10px 10px 0 rgba(0,0,0,.26);
+  color: white;
+  width: 35vw;
+  height: 55vh;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  background-image: -webkit-linear-gradient(353deg,#ff7a6e,#ffd670);
+  background-image: -o-linear-gradient(353deg,#ff7a6e,#ffd670);
+  background-image: linear-gradient(97deg,#ff7a6e,#ffd670);
+}
+
+.auth-title {
+  display: block;
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.logo {
+  box-sizing: inherit;
+  height: 114px;
+  width: 114px;
+}
+
+.auth-username-input-box{
+  display: flex;
+  height: 25px;
+}
+
+.auth-password-input-box{
+  display: flex;
+  height: 25px;
+}
+
+.auth-buttons {
+  border: none;
+  appearance: button;
+  border-radius: 1%;
+  color: white;
+  padding: 10px 20px;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
 }

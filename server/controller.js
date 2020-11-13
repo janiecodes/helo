@@ -48,5 +48,32 @@ module.exports = {
         }else{
             res.status(404).send("Please login")
         }
+    },
+
+    getUserPosts: (req, res) => {
+        const db = req.app.get('db');
+        const {id} = req.params;
+
+        db.get_user_posts(id)
+        .then(posts => res.status(200).send(posts))
+        .catch(error => res.status(500).send(error))
+        //req.query search and userposts:true
+    },
+
+    getOnePost: (req, res) => {
+        const db = req.app.get('db');
+        const {title, img, content, author, authorPicture} = req.params
+        db.get_one_post(title, img, content, author, authorPicture)
+        .then(post => res.status(200).send(post))
+        .catch(error => res.status(500).send(error))
+    },
+
+    addPost: (req, res) => {
+        const db = req.app.get('db');
+        const {id} = req.params
+        const {title, img, content} = req.body
+        db.add_post(id, title, img, content)
+        .then(post => res.status(200).send(post))
+        .catch(error => res.status(500).send(error))
     }
 }
