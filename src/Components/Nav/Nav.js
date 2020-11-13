@@ -9,8 +9,7 @@ function Nav(props) {
             <div className='nav-component'>
                 <div className='nav-buttons'>
                    <Link to='/dashboard'></Link>
-                   <Link to='/new'></Link>
-                   
+                   <Link to='/new'></Link>  
                 </div>
                 <div className='logout-button'>
                 <Link to='/' onClick={props.logoutUser}></Link>

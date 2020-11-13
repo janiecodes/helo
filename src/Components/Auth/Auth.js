@@ -49,7 +49,6 @@ class Auth extends Component {
         catch(error){
             alert(error.response.request.response)
         }
-
       }
 
  render() {
