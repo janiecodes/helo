@@ -8,11 +8,11 @@ function Nav(props) {
         return (
             <div className='nav-component'>
                 <div className='nav-buttons'>
-                   <Link to='/dashboard'></Link>
-                   <Link to='/new'></Link>  
+                   <Link to='/dashboard'><p>Home</p></Link>
+                   <Link to='/new'><p>New Post</p></Link>  
                 </div>
                 <div className='logout-button'>
-                <Link to='/' onClick={props.logoutUser}></Link>
+                <Link to='/' onClick={props.logoutUser}><p>Logout</p></Link>
                 </div>
             </div>
             )
