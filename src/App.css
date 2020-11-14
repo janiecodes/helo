@@ -73,3 +73,14 @@
   text-align: center;
   align-items: flex-start;
 }
+
+.form-component {
+  background-color: white;
+}
+
+.form-new-post {
+  font-size: 40px;
+  font-weight: 700;
+  color: #ff9770;
+  margin: 0 0 10px;
+}
