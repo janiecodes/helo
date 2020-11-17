@@ -69,24 +69,48 @@
 
 .auth-username-input-box{
   display: flex;
+  justify-content: space-between;
+  width: 55%;
+  align-items: center;
   height: 25px;
 
 }
 
 .auth-password-input-box{
   display: flex;
+  justify-content: space-between;
+  width: 55%;
+  align-items: center;
   height: 25px;
 }
 
 .auth-buttons {
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   appearance: button;
-  border-radius: 1%;
+  border-radius: 1px;
   color: white;
+}
+
+.login-button {
+  background-image: radial-gradient(circle at 50% -46%,#737373,#403d39);
+  color: white;
+  font-family: Arial;
+  font-size: 13px;
   padding: 10px 20px;
-  display: inline-block;
-  text-align: center;
-  align-items: flex-start;
+  border: none;
+    
+}
+
+.register-button {
+  background-image: radial-gradient(circle at 50% -46%,#737373,#403d39);
+  color: white;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 10px 20px;
+  border: none;
+    
 }
 
 .form-component {
