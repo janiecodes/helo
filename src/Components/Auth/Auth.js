@@ -47,7 +47,7 @@ class Auth extends Component {
             this.props.history.push('/dashboard')
         }
         catch(error){
-            alert(error.response.request.response)
+            console.log(error)
         }
       }
 

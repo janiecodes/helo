@@ -36,7 +36,7 @@ export function logoutUser() {
 export default function reducer(state = initialState, action) {
     switch(action.type){
         case LOGIN_USER:
-            return {...state, username: action.payload, profilePic: action.payload.profile_pic}
+            return {...state, username: action.payload.username, profilePic: action.payload.profile_pic}
         case LOGOUT_USER:
             return initialState; 
         // case GET_ME + '_PENDING':

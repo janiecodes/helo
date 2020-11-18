@@ -19,8 +19,8 @@ class Dashboard extends Component {
     //   const {data} = await axios.get('/api/dfkdjhf')
     //   this.setState({posts: data})
     // }
-    async componentDidMount(){
-        this.getUserPosts();
+    componentDidMount(){
+      this.getUserPosts();
     }
 
     getUserPosts = () => {
@@ -34,7 +34,7 @@ class Dashboard extends Component {
       }
       axios
         .get(`/api/posts`)
-        .then(res => this.setState({posts: res.data}))
+        .then(res => this.setState({posts: res.data, loadingPage: false}))
         .catch(error => console.log(error))
     }
 
@@ -60,23 +60,29 @@ class Dashboard extends Component {
       })
         return (
           <div className='dashboard-component'>
+            <div className='dashboard-header'>
+              <div className='dashboard-header-left'>
+                <input 
+                className='dashboard-search-box' 
+                value={this.state.search} 
+                onChange={e => this.setState({search: e.target.value})}
+                placeholder='Search by Title'
+                />
+
+                <img onClick={this.getUserPosts} className='magnifying-glass-img' alt='dashboard-search-button' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAeJJREFUSA2tlM0rBGEcx3dWEREp4oBVrvsXLJEoTsR/QDk6ydt1E2ccuIniKGeEi4MLbY6SAzaRUt5C1uer9pkZM7PM2m99muf5vT0zz/yeJxLxUSaTKYch2IJzeIF7SMECdPikeUzWTwuJI9iSUA0HcAhpKIVm6IEWkG/UsqwUz9yiaAmswScsQ31QBr4uOIEnGAyKM3aCVFjB/caYY0CcXmYVPqA7MBTnCOiN/1Q4W4h4C/Rf9D9qs3bzxKifdwNLxhhiQF4V3MGiJw2juuIN6jzOPxrInYRnKHOlYNBnbbuMISfkx0Dqc6ZGmcRB7Za3aMcLkq9BtYxUXC2nPv6vVMPVvir+Ajog/5VqvDqLqPgVxJzGsGP2uoicBlAtIxXfh15jyW+QIK0CdCXYYtV2kDpta7gRuRtwBpYnE+MeHEOxx/mLgZxW0Oke9g3FEYdHWAHv6r5ZkQixTZCGXdAW+wvnALzDJlT6R9lWYhKgwtKM7QkYEaSrVJfQLYxDozOUeRTaYB20FTuQBGnKGes7JqgG5kHXr3QJR3AKDyDp5+lO+t4KnhMguRYI3F8CdSh0T+tI6+TpgKiP1W7HHPkMTyPiJ5jMwTS+WeMo1EALgOT6gkLVVwdlF9CXFF4sMAapL60vtT4ftHlFAAAAAElFTkSuQmCC'/>
             
-            <input 
-            className='dashboard-search-box' 
-            value={this.state.search} 
-            onChange={e => this.setState({search: e.target.value})}
-            placeholder='Search by Title'/>
-            <img className='magnifying-glass-img' onClick={this.getUserPosts}  alt='dashboard-search-box' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAeJJREFUSA2tlM0rBGEcx3dWEREp4oBVrvsXLJEoTsR/QDk6ydt1E2ccuIniKGeEi4MLbY6SAzaRUt5C1uer9pkZM7PM2m99muf5vT0zz/yeJxLxUSaTKYch2IJzeIF7SMECdPikeUzWTwuJI9iSUA0HcAhpKIVm6IEWkG/UsqwUz9yiaAmswScsQ31QBr4uOIEnGAyKM3aCVFjB/caYY0CcXmYVPqA7MBTnCOiN/1Q4W4h4C/Rf9D9qs3bzxKifdwNLxhhiQF4V3MGiJw2juuIN6jzOPxrInYRnKHOlYNBnbbuMISfkx0Dqc6ZGmcRB7Za3aMcLkq9BtYxUXC2nPv6vVMPVvir+Ajog/5VqvDqLqPgVxJzGsGP2uoicBlAtIxXfh15jyW+QIK0CdCXYYtV2kDpta7gRuRtwBpYnE+MeHEOxx/mLgZxW0Oke9g3FEYdHWAHv6r5ZkQixTZCGXdAW+wvnALzDJlT6R9lWYhKgwtKM7QkYEaSrVJfQLYxDozOUeRTaYB20FTuQBGnKGes7JqgG5kHXr3QJR3AKDyDp5+lO+t4KnhMguRYI3F8CdSh0T+tI6+TpgKiP1W7HHPkMTyPiJ5jMwTS+WeMo1EALgOT6gkLVVwdlF9CXFF4sMAapL60vtT4ftHlFAAAAAElFTkSuQmCC'/>
-            <button className="dashboard-reset-button" onClick={this.reset}>Reset</button>
-            
-            <div className='dashboard-my-posts-title'>My Posts</div>
-            <input className='dashboard-checkbox' type='checkbox' checked={this.state.myPosts} onChange={() => this.setState({myPosts: !this.state.myPosts}, this.getUserPosts)}/>
-            <div className='dashboard-loading-page'>
-  
+                <button className="dashboard-reset-button" onClick={this.reset}>Reset</button>
+              </div>
+
+              <div className='dashboard-header-right'>
+                <div className='dashboard-my-posts-title'>My Posts</div>
+                <input className='dashboard-checkbox' type='checkbox' checked={this.state.myPosts} onChange={() => this.setState({myPosts: !this.state.myPosts}, this.getUserPosts)}/>
+              </div>
+            </div>
               {mappedPosts}
 
-            </div>
           </div>
+  
         );
     }
   }

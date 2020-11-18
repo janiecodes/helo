@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import {logoutUser, loginUser} from './../../ducks/reducer';
 import axios from 'axios';
 class Nav extends Component {
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
 
     // componentDidMount(){
     //     this.props.getMe();
@@ -19,7 +19,7 @@ class Nav extends Component {
           .catch(error => console.log(error))
     }
 
-    logoutUser(){
+    logoutUser = () => {
         axios
           .post('/api/auth/logout')
           .then(res => this.props.logoutUser())

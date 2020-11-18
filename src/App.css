@@ -115,6 +115,10 @@
 
 .form-component {
   background-color: white;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 20px;
 }
 
 .form-new-post {
@@ -122,4 +126,66 @@
   font-weight: 700;
   color: #ff9770;
   margin: 0 0 10px;
+}
+
+input {
+  width: 100%;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: textfield;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 694px;
+  border-radius: 2px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.dashboard-header-left {
+  display: flex;
+}
+
+.dashboard-header-right{
+  display: flex;
+
+}
+
+.dashboard-my-posts-title {
+  
+  width: 16vw;
+  font: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.dashboard-checkbox {
+  height: 15px;
+  width: 15px;
+  background-color: initial;
+  cursor: default;
+  appearance: checkbox;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
 }

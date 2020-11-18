@@ -41,7 +41,7 @@ class Form extends Component {
                 value={title} 
                 onChange={e => this.changeHandler(e)}/>
             </div>
-            <div className='form-img'>
+            <div className='form-img-input'>
                 <img className='img' alt='img' src=''/>
                 <h2>Image URL:</h2>
                 <input
@@ -49,7 +49,7 @@ class Form extends Component {
                 value={img} 
                 onChange={e => this.changeHandler(e)}/>
             </div>
-            <div className='form-content'>
+            <div className='form-content-input'>
                 <h2>Content:</h2>
                 <input
                 name='content'
