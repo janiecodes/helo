@@ -2,13 +2,12 @@
 const initialState = {
     username: '',
     profilePic: '',
-    userId: 0,
     // isLoggedIn: false
 }
 
 const LOGIN_USER = "LOGIN_USER";
 const LOGOUT_USER = 'LOGOUT_USER';
-// const GET_USER = "GET_USER";
+// const GET_ME = "GET_ME";
 
 
 export function loginUser(user){
@@ -25,27 +24,26 @@ export function logoutUser() {
     }
 }
 
-// export function getUser(){
-//     const user = axios.get('/api/user')
+// export function getMe(){
+//     const user = axios.get('/api/auth/me')
 //     .then(res => res.data) 
 //     return {
-//         type: GET_USER,
+//         type: GET_ME,
 //         payload: user 
 //     }
 // }
 
 export default function reducer(state = initialState, action) {
-    let {type, payload} = action;
-    switch(type){
+    switch(action.type){
         case LOGIN_USER:
-            return {...state, username: payload, profilePic: payload, userId: payload}
+            return {...state, username: action.payload, profilePic: action.payload.profile_pic}
         case LOGOUT_USER:
-            return {...state, ...action.payload}; 
-        // case GET_USER + '_PENDING':
+            return initialState; 
+        // case GET_ME + '_PENDING':
         //     return state
-        // case GET_USER + '_FULFILLED': 
-        //     return {...state, user: action.payload, isLoggedIn: true}
-        // case GET_USER + '_REJECTED':
+        // case GET_ME + '_FULFILLED': 
+        //     return {...state, username: action.payload, isLoggedIn: true}
+        // case GET_ME + '_REJECTED':
         //     return initialState
         default:
             return state;

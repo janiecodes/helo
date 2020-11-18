@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 
 class Form extends Component {
     constructor(props){
@@ -22,9 +22,10 @@ class Form extends Component {
     // submit new post
     createPost = () => {
         const {title, img, content} = this.state
-        axios.post(`/api/post${this.props.userId}`, {title, img, content})
-        .then((res) => this.props.history.push('/dashboard'))
-        .catch(error => console.log(error));
+        axios
+          .post(`/api/post`, {title, img, content})
+          .then((res) => this.props.history.push('/dashboard'))
+          .catch(error => console.log(error));
     }
 
     render() {
@@ -61,9 +62,11 @@ class Form extends Component {
     }
   }
 
-  function mapStateToProps(state) {
-    return {
-      userId: state.userId
-    }
-  }
-  export default connect(mapStateToProps)(Form);
+//   function mapStateToProps(state) {
+//     return {
+//       userId: state.userId
+//     }
+//   }
+//   export default connect(mapStateToProps)(Form);
+
+export default Form

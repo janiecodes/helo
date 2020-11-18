@@ -9,18 +9,19 @@ class Post extends Component {
             img: '',
             content: '',
             author: '',
-            authorPicture:''
+            authorPicture:'',
+            loadingPage: true
         }
     }
 
     //get post information
     componentDidMount = () => {
-      axios.get(`/api/post/${this.props.match.params.id}`)
-      .then(res => this.setState({...res.data}))
+      axios
+      .get(`/api/post/${this.props.match.params.id}`)
+      .then(res => setTimeout(() => this.setState({...res.data, loadingPage: false}), 1000))
       .catch(error => console.log(error))
     }
-
-    
+  
     render() {
       const {title, content, author, authorPicture} = this.state
       return (

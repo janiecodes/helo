@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 
 app.use(session({
-    ressave: false,
+    resave: false,
     saveUnitialized: true,
     secret: SESSION_SECRET,
     cookie: {
@@ -28,14 +28,15 @@ massive({
     console.log('Yahoo! Connected to db!')
 }).catch( err => console.log(err));
 
-//ENDPOINTS
+//ENDPOINTS - USERS
 app.post('/api/auth/register', ctrl.register);
 app.post('/api/auth/login', ctrl.login);
 app.post('/api/auth/logout', ctrl.logoutUser);
-// app.get('/api/user', ctrl.getUser);
+app.get('/api/auth/me', ctrl.getMe)
 
-app.get('/api/posts/:id', ctrl.getUserPosts) //get all posts by user_id
-app.post('/api/post/:id', ctrl.addPost) //add post by user
+//ENDPOINTS - POSTS
+app.get('/api/posts', ctrl.getUserPosts) //get all posts by user_id
+app.post('/api/post', ctrl.addPost) //add post by user
 app.get('/api/post/:id', ctrl.getOnePost) //get one post by post_id
 
 
