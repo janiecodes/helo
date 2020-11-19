@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getMe} from '../../ducks/reducer'
 import axios from 'axios';
 
 
@@ -19,17 +18,19 @@ class Dashboard extends Component {
     //   const {data} = await axios.get('/api/post)
     //   this.setState({posts: data})
     // }
-    componentDidMount(){
-      this.props.getMe();
-    }
-
-    getUserPosts = () => {
-      
-      axios
-        .get(`/api/posts`)
+    componentDidMount = () => {
+      const {myPosts, search} = this.state
+      axios.get(`/api/posts?myPosts=${myPosts}&search=${search}`)
         .then(res => this.setState({posts: res.data}))
         .catch(error => console.log(error))
     }
+
+    // getUserPosts = () => {
+    //   axios
+    //     .get(`/api/posts`)
+    //     .then(res => this.setState({posts: res.data}))
+    //     .catch(error => console.log(error))
+    // }
 
     //req.query - userspost(boolean) and search(string) IF/ELSE
     // {userposts && search} => title has search string
@@ -91,6 +92,6 @@ class Dashboard extends Component {
 //   }
 // }
 const mapStateToProps = state => state
-export default connect(mapStateToProps, {getMe})(Dashboard);
+export default connect(mapStateToProps)(Dashboard);
 
 // export default Dashboard
