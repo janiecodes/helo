@@ -30,6 +30,8 @@ class Dashboard extends Component {
         .catch(error => console.log(error))
     }
 
+    //userspost and search string IF/ELSE
+
     reset = () => {
       axios
         .get(`/api/posts`)
