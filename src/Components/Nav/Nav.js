@@ -37,7 +37,7 @@ class Nav extends Component {
                 <img src={this.props.profilePic} className='nav-profile-pic' alt="user profile"/>
                 <div className='nav-username'>{this.props.username}</div>
                 <div className='nav-buttons'>
-                   <Link to='/dashboard'><p className='nav-home-button'>Home</p></Link>
+                   <Link to='/dashboard'><p className='nav-home-button' alt='Home Button'>Home</p></Link>
                    <Link to='/new'><p className='nav-new-post-button'>New Post</p></Link>  
                 </div>
                 <div className='logout-button'>

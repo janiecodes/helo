@@ -48,11 +48,11 @@ class Dashboard extends Component {
     render() {
       
       const mappedPosts = this.state.posts.map((post) => {
-        return <Link to={`/post/${post.post_id}`} 
+        return <Link className='one-post' to={`/post/${post.post_id}`} 
                 key={post.post_id}>
-                <h1>{post.title}</h1>
-                <p>by {post.author_id}</p>
-                <img src={post.profile_pic} alt='profile'/>
+                <h1 className='post-tile'>{post.title}</h1>
+                <p className='post-author'>by {post.author_id}</p>
+                <img className='dashboard-profile-pic' src={post.profile_pic} alt='profile'/>
                 </Link>
       })
       console.log(mappedPosts)

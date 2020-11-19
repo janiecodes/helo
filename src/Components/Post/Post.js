@@ -24,7 +24,6 @@ class Post extends Component {
           <h1 className='post-title'>{title}</h1>
           <div className='post-author'>{username}</div>
           <img src={profile_pic} alt={`${username}'s profile`}/>
-          {/* remove the style!!! */}
           <img src={img} className='post-author-img' alt={`${username}'s post`} />
           <div className='post-content'>{content}</div>
         </div>
