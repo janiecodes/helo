@@ -24,13 +24,18 @@ class Dashboard extends Component {
     }
 
     getUserPosts = () => {
+      
       axios
         .get(`/api/posts`)
         .then(res => this.setState({posts: res.data}))
         .catch(error => console.log(error))
     }
 
-    //userspost and search string IF/ELSE
+    //req.query - userspost(boolean) and search(string) IF/ELSE
+    // {userposts && search} => title has search string
+    // {!userposts && !search} => current user is not the author
+    // {!userposts && search} => current user is not the author and title has search string
+    // {userposts && !search} => all posts
 
     reset = () => {
       axios
