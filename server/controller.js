@@ -70,8 +70,8 @@ module.exports = {
     },
 
     getMe: (req, res) => {
-        if(req.session.user){
-            res.status(200).send(req.session.user)
+        if(req.session.user.userId){
+            res.status(200).send(req.session.user.userId)
         }else{
             res.status(404).send("NOT WORKING")
         }
