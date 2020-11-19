@@ -32,6 +32,7 @@ module.exports = {
                 username: foundUser.username,
             }
             res.status(200).send(req.session.user)
+            console.log(req.session.user)
         }else{
             res.status(401).send("Incorrect login information")
         }
@@ -44,8 +45,8 @@ module.exports = {
 
     getUserPosts: (req, res) => {
         const db = req.app.get('db');
-        const {userId} = req.session.user
-        db.get_user_posts(userId)
+        console.log(req.session.user)
+        db.get_user_posts(req.session.user.userId)
         .then(posts => res.status(200).send(posts))
         .catch(error => res.status(500).send(error))
         //req.query search and userposts:true
@@ -61,16 +62,16 @@ module.exports = {
 
     addPost: (req, res) => {
         const db = req.app.get('db');
-        const {userId} = req.session.user
-        const {title, img, content} = req.body
+
+        const {userId, title, img, content} = req.body
         db.add_post(userId, title, img, content)
         .then(post => res.status(200).send(post))
         .catch(error => res.status(500).send(error))
     },
 
     getMe: (req, res) => {
-        if(req.session.user.userId){
-            res.status(200).send(req.session.user.userId)
+        if(req.session.user){
+            res.status(200).send(req.session.user)
         }else{
             res.status(404).send("NOT WORKING")
         }

@@ -30,6 +30,7 @@ class Form extends Component {
 
     render() {
     const {title, img, content} = this.state
+    console.log(this.state)
       return (
         <div className='form-component'>
             <h1 className='form-new-post'>New Post</h1>

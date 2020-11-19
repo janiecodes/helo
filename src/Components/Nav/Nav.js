@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {logoutUser, loginUser} from './../../ducks/reducer';
+import {logoutUser, loginUser, getMe} from './../../ducks/reducer';
 import axios from 'axios';
 class Nav extends Component {
     // constructor(props){
@@ -12,12 +12,16 @@ class Nav extends Component {
     //     this.props.getMe();
     // }
 
+    // componentDidMount(){
+    //     axios
+    //       .get('/api/auth/me')
+    //       .then(res => {this.props.loginUser(res.data)})
+    //       .catch(error => console.log(error))
+    // }
+
     componentDidMount(){
-        axios
-          .get('/api/auth/me')
-          .then(res => {this.props.loginUser(res.data)})
-          .catch(error => console.log(error))
-    }
+        this.props.getMe();
+      }
 
     logoutUser = () => {
         axios
@@ -51,5 +55,5 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps, {logoutUser, loginUser})(withRouter(Nav));
+export default connect(mapStateToProps, {logoutUser, loginUser, getMe})(withRouter(Nav));
 // export default withRouter(connect(mapStateToProps, {logoutUser}))(Nav)

@@ -9,8 +9,7 @@ class Post extends Component {
             img: '',
             content: '',
             author: '',
-            authorPicture:'',
-            loadingPage: true
+            authorPicture:''
         }
     }
 
@@ -18,7 +17,7 @@ class Post extends Component {
     componentDidMount = () => {
       axios
       .get(`/api/post/${this.props.match.params.id}`)
-      .then(res => setTimeout(() => this.setState({...res.data, loadingPage: false}), 1000))
+      .then(res => this.setState({...res.data}))
       .catch(error => console.log(error))
     }
   
