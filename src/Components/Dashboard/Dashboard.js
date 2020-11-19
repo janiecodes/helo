@@ -77,9 +77,9 @@ class Dashboard extends Component {
                 <input className='dashboard-checkbox' type='checkbox' checked={this.state.myPosts} onChange={() => this.setState({myPosts: !this.state.myPosts}, this.getUserPosts)}/>
               </div>
             </div>
-            
+              <div className='dashboard-mapped-posts'>
               {mappedPosts}
-
+              </div>
           </div>
   
         );
