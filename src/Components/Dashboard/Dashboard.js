@@ -25,6 +25,24 @@ class Dashboard extends Component {
         .catch(error => console.log(error))
     }
 
+    // componentDidMount = () => {
+    //   this.getUserPosts()
+    // }
+
+    getUserPosts = () => {
+      const {myPosts, search} = this.state
+      if(myPosts && search){
+        return `/api/posts?myPosts=${myPosts}&search=${search}`
+      }else if(myPosts && !search){
+        return `/api/posts?myPosts=${myPosts}`
+      }else if(!myPosts && search){
+        return `/api/posts?search=${search}`
+      }
+      axios.get(`/api/posts`)
+        .then(res => this.setState({posts: res.data}))
+        .catch(error => console.log(error))
+    }
+
     // getUserPosts = () => {
     //   axios
     //     .get(`/api/posts`)
@@ -38,11 +56,18 @@ class Dashboard extends Component {
     // {!userposts && search} => current user is not the author and title has search string
     // {userposts && !search} => all posts
 
+    // reset = () => {
+    //   axios
+    //     .get(`/api/posts`)
+    //     .then(res => this.setState({posts: res.data, search: ''}))
+    //     .catch(error => console.log(error));
+    // }
+
     reset = () => {
-      axios
-        .get(`/api/posts`)
+      const {myPosts, search} = this.state
+      axios.get(`/api/posts?myPosts=${myPosts}&search=${search}`)
         .then(res => this.setState({posts: res.data, search: ''}))
-        .catch(error => console.log(error));
+        .catch(error => console.log(error))
     }
 
     render() {
