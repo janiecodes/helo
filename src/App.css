@@ -247,6 +247,7 @@
   justify-content: center;
   flex-direction: column;
   background-color: white;
+  margin: 10px 0;
 }
 
 .dashboard-profile-pic {
@@ -271,6 +272,9 @@
   border-radius: 2px;
   background-color: #fff;
   padding: 20px;
+  width: 70%;
+  min-height: 400px;
+  margin: 0 auto;
 }
 
 .one-post {
