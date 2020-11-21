@@ -38,6 +38,7 @@ app.get('/api/auth/me', ctrl.getMe)
 app.get('/api/posts', ctrl.getUserPosts) //get all posts by user_id
 app.post('/api/post', ctrl.addPost) //add post by user
 app.get('/api/post/:id', ctrl.getOnePost) //get one post by post_id
+app.get('/api/posts', ctrl.getAllPosts)
 
 
 

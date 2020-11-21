@@ -46,11 +46,17 @@ module.exports = {
         res.sendStatus(200);
     },
 
-    getUserPosts: (req, res) => {
+    getAllPosts: async (req, res) =>{
+        const db = req.app.get('db')
+        const posts = await db.get_all_posts()
+        res.status(200).send(posts)
+    },
+
+    getUserPosts: async (req, res) => {
         const db = req.app.get('db');
         const {myPosts, search} = req.query
 
-        db.get_user_posts([myPosts, req.session.user.userId, search])
+        const post = await db.get_user_posts([myPosts, req.session.user.userId, search])
         .then(posts => res.status(200).send(posts))
         .catch(error => res.status(500).send(error))
         //req.query search and userposts:true
