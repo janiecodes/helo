@@ -19,10 +19,6 @@ class Nav extends Component {
           .catch(error => console.log(error))
     }
 
-    // componentDidMount(){
-    //     this.props.getMe();
-    //   }
-
     logoutUser = () => {
         axios
           .post('/api/auth/logout')
